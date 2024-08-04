@@ -1,20 +1,18 @@
-# Use the official Node.js image as the base image
-FROM node:14
+# Use the official Node.js image.
+# https://hub.docker.com/_/node
+FROM node:22.3.0
 
-# Create and change to the app directory
-WORKDIR /usr/src/app
+# Create and change to the app directory.
+WORKDIR /pdfgen-node
 
-# Copy package.json and package-lock.json to the working directory
+# Copy application dependency manifests to the container image.
 COPY package*.json ./
 
-# Install dependencies
+# Install production dependencies.
 RUN npm install
 
-# Copy the rest of the application code to the working directory
+# Copy local code to the container image.
 COPY . .
 
-# Expose the port the app runs on
-EXPOSE 3000
-
-# Define the command to run the app
-CMD ["node", "server.js"]
+# Run the web service on container startup.
+CMD [ "node", "server.js" ]
