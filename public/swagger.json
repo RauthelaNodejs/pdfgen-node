@@ -1,0 +1,141 @@
+
+
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "Pdf",
+      "description": "Api documention with node js  ",
+      "contact": {
+        "email": ""
+      },
+      "version": "1.0.0"
+     
+    },
+    "basePath": "/",
+    
+    "schemes": [
+      "http",
+      "https"
+    ],
+    "consumes": [
+      "application/x-www-form-urlencoded"
+     
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "paths": {
+  
+    "/user/signUp": {
+      "post": {
+        "deprecated": false,
+        "tags": [
+          "User"
+        ],
+        "description": "signUp user",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "formData",
+            "description": "please enter email",
+            "required": true,
+            "type": "string"
+        },
+        {
+          "name": "password",
+          "in": "formData",
+          "description": "please enter password",
+          "required": true,
+          "type": "string"
+        }      ,
+        {
+          "name": "name",
+          "in": "formData",
+          "description": "please enter name",
+          "required": true,
+          "type": "string"
+      }
+        
+        
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+         "security": [
+          {
+            "basicAuth": [
+              "Username: ",
+              "Password: "
+            ]
+          }
+        ]
+      }
+  },
+    "/user/login": {
+      "post": {
+        "deprecated": false,
+        "tags": [
+          "User"
+        ],
+        "description": "login user",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+         
+          {
+            "name": "email",
+            "in": "formData",
+            "description": "please enter email",
+            "required": true,
+            "type": "string"
+        },
+        {
+          "name": "password",
+          "in": "formData",
+          "description": "please enter password",
+          "required": true,
+          "type": "string"
+      }      
+        
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+         "security": [
+          {
+            "basicAuth": [
+              "Username: ",
+              "Password: "
+            ]
+          }
+        ]
+      }
+  }
+  },
+    "securityDefinitions": {
+      "basicAuth": {
+        "type": "basic"
+      }
+    }
+  }
+  
