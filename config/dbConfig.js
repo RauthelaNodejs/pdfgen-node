@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
-let mongoUrl = process.env.MONGOURL ||"mongodb://localhost/test"
+require('dotenv').config();
+
+let mongoUrl = process.env.MONGOURL ;
 function dbConnection() {
     mongoose.connect(mongoUrl, { useNewUrlParser: true });
     mongoose.set({debug : true})
